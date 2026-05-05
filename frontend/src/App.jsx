@@ -54,7 +54,7 @@ export default function App() {
 
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 20px' }}>
-      <h1>📝 My Todo List</h1>
+      <h1>📝 My Todo List - v2</h1>
 
       <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
         <input
