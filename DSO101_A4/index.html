@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ritesh Adhikari | DSO101</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #0f172a;
+        color: #f1f5f9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .card {
+        background: #1e293b;
+        border-radius: 16px;
+        padding: 48px;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      }
+
+      .badge {
+        background: #6366f1;
+        color: white;
+        padding: 6px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        display: inline-block;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+        color: #818cf8;
+      }
+
+      .subtitle {
+        color: #94a3b8;
+        font-size: 1rem;
+        margin-bottom: 32px;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .info-box {
+        background: #0f172a;
+        border-radius: 10px;
+        padding: 16px;
+      }
+
+      .info-box .label {
+        font-size: 11px;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 4px;
+      }
+
+      .info-box .value {
+        font-size: 15px;
+        color: #e2e8f0;
+        font-weight: 600;
+      }
+
+      .footer {
+        margin-top: 32px;
+        color: #475569;
+        font-size: 13px;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #14532d;
+        color: #4ade80;
+        padding: 8px 20px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: #4ade80;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="badge">DSO101 — Assignment 4</div>
+      <h1>Hello DevOps! 👋</h1>
+      <p class="subtitle">Deployed with GitHub Actions + Render</p>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="label">Student</div>
+          <div class="value">Ritesh Adhikari</div>
+        </div>
+        <div class="info-box">
+          <div class="label">Student ID</div>
+          <div class="value">02250365</div>
+        </div>
+        <div class="info-box">
+          <div class="label">Course</div>
+          <div class="value">DSO101</div>
+        </div>
+        <div class="info-box">
+          <div class="label">Program</div>
+          <div class="value">BE Software Engineering</div>
+        </div>
+      </div>
+
+      <div class="status">
+        <div class="dot"></div>
+        Live on Render
+      </div>
+
+      <div class="footer">
+        <p>Automatically deployed via GitHub Actions on every push to main</p>
+      </div>
+    </div>
+  </body>
+</html>
