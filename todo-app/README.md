@@ -58,8 +58,6 @@ docker push riteshadhikari/fe-todo:02250365
 - Added environment variable: VITE_API_URL
 - Live URL: https://fe-todo.onrender.com
 
-[ADD SCREENSHOT OF FRONTEND SERVICE LIVE ON RENDER HERE]
-
 ---
 
 ## Part B - Automated Image Build and Deployment
@@ -78,9 +76,30 @@ docker push riteshadhikari/fe-todo:02250365
 **Live URLs:**
 - Backend: https://be-todo-git.onrender.com
 - Frontend: https://fe-todo-git.onrender.com
-
-[ADD SCREENSHOT OF RENDER SHOWING AUTO-DEPLOY TRIGGERED BY GIT PUSH HERE]
-
 ---
 
-## Repository Structure
+## Assignment 3 - GitHub Actions CI/CD Pipeline
+
+### Workflow
+- Created `.github/workflows/docker-deploy.yml`
+- On every push to `main`:
+  1. Logs into Docker Hub using GitHub Secrets
+  2. Builds backend and frontend Docker images
+  3. Pushes images to Docker Hub with `latest` tag
+  4. Triggers Render deployment via webhook
+
+### GitHub Secrets Used
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`
+- `RENDER_DEPLOY_HOOK`
+
+### Screenshots
+![alt text](<Screenshot 2026-05-12 151238.png>)
+![alt text](<Screenshot 2026-05-12 151407.png>)
+
+### Live Deployment
+- Backend: https://be-todo-02250365.onrender.com
+
+A1 outcome screenshots:
+![alt text](image.png)
+![alt text](<Screenshot 2026-05-12 152807.png>)
