@@ -37,9 +37,11 @@ pipeline {
         }
         stage('Deploy') {
     steps {
-        bat 'docker login -u riteshadhikari -p dckr_pat_Miv7odorOGHu9TlKgD4ZNKnbiYM'
-        bat 'docker build -t riteshadhikari/be-todo:latest DSO101_A1and2and3/backend'
-        bat 'docker push riteshadhikari/be-todo:latest'
+        withCredentials([usernamePassword(credentialsId: 'docker-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+            bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'
+            bat 'docker build -t riteshadhikari/be-todo:latest DSO101_A1and2and3/backend'
+            bat 'docker push riteshadhikari/be-todo:latest'
+        }
     }
 }
     }
