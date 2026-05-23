@@ -77,6 +77,33 @@ docker push riteshadhikari/fe-todo:02250365
 - Backend: https://be-todo-git.onrender.com
 - Frontend: https://fe-todo-git.onrender.com
 ---
+## Assignment 2 - Jenkins Pipeline
+
+### Jenkins Setup
+- Installed Jenkins 2.555.2 LTS on localhost:8090
+- Installed plugins: NodeJS, Pipeline, Git, GitHub Integration
+- Configured GitHub credentials using Personal Access Token
+- Configured Docker Hub credentials
+
+### Pipeline Stages
+1. **Checkout** - Pulls code from GitHub
+2. **Install** - Runs npm install on backend
+3. **Build** - Builds frontend with Vite
+4. **Test** - Runs 3 Jest unit tests (all passing)
+5. **Deploy** - Builds and pushes Docker image to Docker Hub
+
+### Test Results
+- basic math works ✅
+- todo task is a string ✅
+- completed defaults to false ✅
+
+### Screenshots
+[Add screenshots here]
+
+### Challenges
+- Jenkins plugin installation failed due to network restrictions in Bhutan
+- Solved by manually downloading and installing .hpi files
+- Docker Hub token had to be stored in Jenkins credentials to avoid GitHub secret scanning
 
 ## Assignment 3 - GitHub Actions CI/CD Pipeline
 
