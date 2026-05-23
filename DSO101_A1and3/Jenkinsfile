@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    tools {
+        nodejs 'NodeJS'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/RiteshAdhikari005/RiteshAdhikari_02250365_DSO101_Assignments.git',
+                    credentialsId: 'github-creds'
+            }
+        }
+        stage('Install') {
+            steps {
+                dir('DSO101_A1and3/backend') {
+                    bat 'npm install'
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('DSO101_A1and3/frontend') {
+                    bat 'npm install'
+                    bat 'npm run build'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('DSO101_A1and3/backend') {
+                    bat 'npm test'
+                }
+            }
+            post {
+                always {
+                    junit 'DSO101_A1and3/backend/junit.xml'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                bat 'docker build -t riteshadhikari/be-todo:latest DSO101_A1and3/backend'
+                bat 'docker push riteshadhikari/be-todo:latest'
+            }
+        }
+    }
+}
