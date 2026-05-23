@@ -36,10 +36,11 @@ pipeline {
             }
         }
         stage('Deploy') {
-            steps {
-                bat 'docker build -t riteshadhikari/be-todo:latest DSO101_A1and2and3/backend'
-                bat 'docker push riteshadhikari/be-todo:latest'
-            }
-        }
+    steps {
+        bat 'docker login -u riteshadhikari -p dckr_pat_Miv7odorOGHu9TlKgD4ZNKnbiYM'
+        bat 'docker build -t riteshadhikari/be-todo:latest DSO101_A1and2and3/backend'
+        bat 'docker push riteshadhikari/be-todo:latest'
+    }
+}
     }
 }
