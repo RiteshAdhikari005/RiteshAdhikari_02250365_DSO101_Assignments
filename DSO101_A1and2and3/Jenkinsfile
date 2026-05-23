@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        nodejs 'NodeJS'
-    }
     stages {
         stage('Checkout') {
             steps {
@@ -13,14 +10,14 @@ pipeline {
         }
         stage('Install') {
             steps {
-                dir('DSO101_A1and3/backend') {
+                dir('DSO101_A1and2and3/backend') {
                     bat 'npm install'
                 }
             }
         }
         stage('Build') {
             steps {
-                dir('DSO101_A1and3/frontend') {
+                dir('DSO101_A1and2and3/frontend') {
                     bat 'npm install'
                     bat 'npm run build'
                 }
@@ -28,19 +25,19 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir('DSO101_A1and3/backend') {
+                dir('DSO101_A1and2and3/backend') {
                     bat 'npm test'
                 }
             }
             post {
                 always {
-                    junit 'DSO101_A1and3/backend/junit.xml'
+                    junit 'DSO101_A1and2and3/backend/junit.xml'
                 }
             }
         }
         stage('Deploy') {
             steps {
-                bat 'docker build -t riteshadhikari/be-todo:latest DSO101_A1and3/backend'
+                bat 'docker build -t riteshadhikari/be-todo:latest DSO101_A1and2and3/backend'
                 bat 'docker push riteshadhikari/be-todo:latest'
             }
         }
